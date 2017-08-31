@@ -1,19 +1,39 @@
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const VENDOR = [
     'react',
     'react-dom'
 ];
 
+const PATHS = {
+    app: path.join(__dirname, './src/index.tsx'),
+    build: path.join(__dirname, '/dist')
+};
+
 module.exports = {
     cache: true,
     entry: {
-        app: "./src/index.tsx",
         vendor: VENDOR,
+        app: PATHS.app,
     },
     output: {
-        filename: "[name].js",
-        path: __dirname + "/dist",
+        filename: "[name].[hash].js",
+        path: PATHS.build,
     },
-
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: Infinity,
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'index.html'),
+            hash: true,
+            filename: 'index.html',
+            inject: 'body'
+        }),
+    ],
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
@@ -44,8 +64,8 @@ module.exports = {
             }
         ]
     },
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
+    // externals: {
+    //     "react": "React",
+    //     "react-dom": "ReactDOM"
+    // },
 };
