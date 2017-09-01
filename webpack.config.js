@@ -8,7 +8,7 @@ const VENDOR = [
 ];
 
 const PATHS = {
-    app: path.join(__dirname, './src/index.tsx'),
+    app: path.join(__dirname, './frontend/js/index.tsx'),
     build: path.join(__dirname, '/dist')
 };
 
@@ -28,7 +28,7 @@ module.exports = {
             minChunks: Infinity,
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.html'),
+            template: path.join(__dirname, 'frontend/index.html'),
             hash: true,
             filename: 'index.html',
             inject: 'body'
@@ -52,9 +52,9 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                     },
-                    // {
-                    //     loader: 'awesome-typescript-loader',
-                    // }
+                    {
+                        loader: 'awesome-typescript-loader',
+                    }
                 ],
             },
             {
@@ -64,8 +64,4 @@ module.exports = {
             }
         ]
     },
-    // externals: {
-    //     "react": "React",
-    //     "react-dom": "ReactDOM"
-    // },
 };
