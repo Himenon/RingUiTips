@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ringConfig = require('@jetbrains/ring-ui/webpack.config').config;
 
 const VENDOR = [
     'react',
@@ -54,7 +55,8 @@ module.exports = {
                     },
                     {
                         loader: 'awesome-typescript-loader',
-                    }
+                    },
+                    ...ringConfig.module.rules,
                 ],
             },
             {
