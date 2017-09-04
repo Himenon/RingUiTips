@@ -20,7 +20,8 @@ module.exports = {
         app: PATHS.app,
     },
     output: {
-        filename: "[name].[hash].js",
+        // filename: "[name].[hash].js",
+        filename: "[name].js",
         path: PATHS.build,
     },
     plugins: [
@@ -56,14 +57,14 @@ module.exports = {
                     {
                         loader: 'awesome-typescript-loader',
                     },
-                    ...ringConfig.module.rules,
                 ],
             },
             {
                 test: /\.js$/,
                 enforce: "pre",
                 loader: "source-map-loader"
-            }
+            },
+            ...ringConfig.module.rules,
         ]
     },
 };

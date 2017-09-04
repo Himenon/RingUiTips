@@ -10,6 +10,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-	<HelloRingUI />,,
-	document.getElementById('ring-ui-loader');
+	<HelloRingUI />,
+	document.getElementById('ring-ui-loader')
 );
