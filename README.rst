@@ -1,5 +1,5 @@
 ===========================
-HelloFromReactAndTypeScript
+RingUiTips
 ===========================
 
 Setup
@@ -12,8 +12,7 @@ frontend
 
 	npm install yarn
 	yarn install
-	webpack
-	# or webpack --watch
+	npm run dev
 
 run server
 ---------------------------

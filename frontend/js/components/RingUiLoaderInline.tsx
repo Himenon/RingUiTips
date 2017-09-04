@@ -2,8 +2,10 @@ import * as React from "react";
 import * as ReactDOM from 'react-dom';
 import LoaderInline from '@jetbrains/ring-ui/components/loader-inline/loader-inline';
 
-export class HelloRingUI extends React.Component {
+class RingUiLoaderInline extends React.Component {
 	render() {
-		return <LoaderInline/>;
+		return <LoaderInline />;
 	}
 }
+
+export default RingUiLoaderInline;
