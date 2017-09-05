@@ -1,15 +1,18 @@
 import * as React from "react";
 import { render } from "react-dom";
-import RingUiAlert from "../../components/RingUiAlert";
-import RingUiLoaderInline from "../../components/RingUiLoaderInline";
+import * as RingUI from "../../components/ring-ui";
 
 class RingUiTipsView extends React.Component {
 	render() {
 		return <dl>
-			<dt>RingUiAlert</dt>
-			<dd><RingUiAlert /></dd>
-			<dt>RingUiLoaderInline</dt>
-			<dd><RingUiLoaderInline /></dd>
+			<dt>Alert</dt>
+			<dd><RingUI.Alert /></dd>
+			<dt>LoaderInline</dt>
+			<dd><RingUI.LoaderInline /></dd>
+			<dt>AlertContainer</dt>
+			<dd><RingUI.AlertContainer /></dd>
+			<dt>Auth DIalog</dt>
+			<dd><RingUI.AuthDialog /></dd>
 		</dl>;
 	}
 }

@@ -23,6 +23,7 @@ module.exports = {
         // filename: "[name].[hash].js",
         filename: "[name].js",
         path: PATHS.build,
+        publicPath: '/static',
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -63,6 +64,10 @@ module.exports = {
                 test: /\.js$/,
                 enforce: "pre",
                 loader: "source-map-loader"
+            },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$/,
+                loader: 'file-loader?name=/images/[name].[ext]?[hash]'
             },
             ...ringConfig.module.rules,
         ]
