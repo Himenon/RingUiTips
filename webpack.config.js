@@ -66,8 +66,13 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.jpe?g$|\.gif$|\.png$/,
-                loader: 'file-loader?name=/images/[name].[ext]?[hash]'
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg(\?.*)?$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/',
+                    publicPath: 'images',
+                }
             },
             ...ringConfig.module.rules,
         ]

@@ -2,7 +2,8 @@ import {render} from 'react-dom';
 import * as React from 'react';
 import AuthDialog from '@jetbrains/ring-ui/components/auth-dialog/auth-dialog';
 import Button from '@jetbrains/ring-ui/components/button/button';
-import youtrackLogo from 'file-loader?publicPath=/images/!@jetbrains/logos/youtrack/youtrack.svg';
+// import youtrackLogo from '!file-loader?publilcPath=images/@jetbrains/logos/youtrack/youtrack.svg';
+import youtrackLogo from '!@jetbrains/logos/youtrack/youtrack.svg';
 
 class RingUiAuthDialog extends React.Component {
   state = {
