@@ -1,41 +1,45 @@
-import * as React from "react";
+import * as React from 'react';
 import { render } from 'react-dom';
 import Button from '@jetbrains/ring-ui/components/button/button';
 import Alert, { Container } from '@jetbrains/ring-ui/components/alert/alert';
 
-class AlertContainer extends React.Component {
-  state = {
+export interface IState {
+  alerts: any[];
+}
+
+class AlertContainer extends React.Component<{}, IState> {
+  public state = {
     alerts: [
       {type: Alert.Type.WARNING, key: 1, message: 'Test warning', isClosing: false},
-      {type: Alert.Type.MESSAGE, key: 2, message: 'Test message', isClosing: false}
-    ]
+      {type: Alert.Type.MESSAGE, key: 2, message: 'Test message', isClosing: false},
+    ],
   };
 
-  yetAnotherMessage = () => {
+  public yetAnotherMessage = () => {
     this.setState({
       alerts: [{
-          type: Alert.Type.MESSAGE,
           key: Date.now(),
-          message: 'Another message at ' + new Date()
+          message: 'Another message at ' + new Date(),
+          type: Alert.Type.MESSAGE,
         },
-        ...this.state.alerts
-      ]
+        ...this.state.alerts,
+      ],
     });
   }
 
-  onCloseAlert = (closedAlert) => {
+  public onCloseAlert = (closedAlert: any) => {
     this.setState({
-      alerts: this.state.alerts.filter(alert => alert !== closedAlert)
+      alerts: this.state.alerts.filter(alert => alert !== closedAlert),
     });
   }
 
-  onCloseAlertClick = (alert) => {
-    const alertToClose = this.state.alerts.filter(it => alert.key === it.key)[0]
+  public onCloseAlertClick = (alert) => {
+    const alertToClose = this.state.alerts.filter(it => alert.key === it.key)[0];
     alertToClose.isClosing = true;
     this.setState({alerts: [...this.state.alerts]});
   }
 
-  render() {
+  public render() {
     return (
       <div>
         <Button onClick={this.yetAnotherMessage}>Create another message</Button>

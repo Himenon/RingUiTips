@@ -1,0 +1,17 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {
+        "class-name": true
+    },
+    "rules": {
+        "no-any": true,
+        "no-var": true,
+        "indent": [true, "spaces"],
+        "quotemark": [true, "single", "jsx-double"],
+        "arrow-parens": true
+    },
+    "rulesDirectory": []
+}

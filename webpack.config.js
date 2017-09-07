@@ -60,20 +60,20 @@ module.exports = {
                     },
                 ],
             },
-            {
-                test: /\.js$/,
-                enforce: "pre",
-                loader: "source-map-loader"
-            },
-            {
-                test: /\.jpe?g$|\.gif$|\.png$|\.svg(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: 'images/',
-                    publicPath: 'images',
-                }
-            },
+            // {
+            //     test: /\.js$/,
+            //     enforce: "pre",
+            //     loader: "source-map-loader"
+            // },
+            // {
+            //     test: /\.jpe?g$|\.gif$|\.png$|\.svg(\?.*)?$/,
+            //     loader: 'file-loader',
+            //     options: {
+            //         name: '[name].[ext]',
+            //         outputPath: 'images/',
+            //         publicPath: 'images',
+            //     }
+            // },
             ...ringConfig.module.rules,
         ]
     },
