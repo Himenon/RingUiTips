@@ -1,11 +1,10 @@
-import * as React from "react";
-import * as ReactDOM from 'react-dom';
+import * as React from 'react';
 import LoaderInline from '@jetbrains/ring-ui/components/loader-inline/loader-inline';
 
 class RingUiLoaderInline extends React.Component {
-	public render() {
-		return <LoaderInline />;
-	}
+  public render() {
+    return <LoaderInline />;
+  }
 }
 
 export default RingUiLoaderInline;
