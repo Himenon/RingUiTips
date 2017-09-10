@@ -48,6 +48,7 @@ module.exports = {
 
     module: {
         rules: [
+            ...ringConfig.module.rules,
             {
                 test: /\.ts|\.tsx$/,
                 exclude: /node_modules/,
@@ -60,21 +61,24 @@ module.exports = {
                     },
                 ],
             },
-            // {
-            //     test: /\.js$/,
-            //     enforce: "pre",
-            //     loader: "source-map-loader"
-            // },
-            // {
-            //     test: /\.jpe?g$|\.gif$|\.png$|\.svg(\?.*)?$/,
-            //     loader: 'file-loader',
-            //     options: {
-            //         name: '[name].[ext]',
-            //         outputPath: 'images/',
-            //         publicPath: 'images',
-            //     }
-            // },
-            ...ringConfig.module.rules,
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                loader: "source-map-loader"
+            },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/',
+                    publicPath: 'images',
+                }
+            },
+            {
+                test: /\.svg$/,
+                loader: 'file-loader?limit=10000&mimetype=image/svg+xml'
+            },
         ]
     },
 };
