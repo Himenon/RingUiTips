@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ringConfig = require('@jetbrains/ring-ui/webpack.config').config;
+const ringUiWebpackConfig = require('@jetbrains/ring-ui/webpack.config');
 
 const VENDOR = [
     'react',
@@ -12,6 +12,11 @@ const PATHS = {
     app: path.join(__dirname, './frontend/js/index.tsx'),
     build: path.join(__dirname, '/dist')
 };
+
+ringUiWebpackConfig.loaders.svgSpriteLoader.include.push(
+    require('@jetbrains/logos'),
+    require('@jetbrains/icons')
+);
 
 module.exports = {
     cache: true,
@@ -43,12 +48,17 @@ module.exports = {
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"],
-        modules: ['node_modules']
+        modules: ['node_modules'],
+        alias: {
+            react: path.resolve('./node_modules/react'),
+            'react-dom': path.resolve('./node_modules/react-dom'),
+            '@jetbrains/ring-ui': path.resolve('./node_modules/@jetbrains/ring-ui'),
+        }
     },
 
     module: {
         rules: [
-            ...ringConfig.module.rules,
+            ...ringUiWebpackConfig.config.module.rules,
             {
                 test: /\.ts|\.tsx$/,
                 exclude: /node_modules/,

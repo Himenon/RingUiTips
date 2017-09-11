@@ -13,15 +13,15 @@ class RingUiAuthDialog extends React.Component {
     }
   };
 
-  componentDidMount() {
+  public componentDidMount() {
     this.showAuthDialog();
   }
 
-  hideAuthDialog = () => {
+  public hideAuthDialog = () => {
     this.setState({confirm: {show: false}});
   }
 
-  showAuthDialog = () => {
+  public showAuthDialog = () => {
     return new Promise((resolve, reject) => {
       this.setState({
         confirm: {
@@ -37,7 +37,7 @@ class RingUiAuthDialog extends React.Component {
       catch(() => console.warn('Rejected'));
   }
 
-  render() {
+  public render() {
     return (
     <div>
       <div>
